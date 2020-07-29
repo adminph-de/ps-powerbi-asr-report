@@ -1,0 +1,8 @@
+# Special credential files
+# Exclude all files with credentials stored in
+# Defined credentil files are: [somename]cred.conf and files with [somename].cred
+**/cred/*
+*creds.conf
+*cred.conf
+*.creds
+*.cred
