@@ -1,4 +1,23 @@
-﻿#Output Root Path
+﻿<#
+ .SYNOPSIS
+    Collects information out of Azure Site Recovery (ASR) into a CVS file.
+    By: Patrick Hayo (patrick.hayo@icloud.com)
+    Revision: 1.0 
+    Data: 2019-03-27
+
+ .DESCRIPTION
+    Executable on PowerShell Command Line. 
+    Prerequtements: PowerShell, AzureAz Module
+    Optional to analyse the data: Microsoft Excel and PowerBI
+
+ .PARAMETER CsvPath
+    Destination Directory for the output of the Script.
+
+ .PARAMETER AzSubList
+    List of Azure Subscriptions, comma seperated.
+#>
+
+#Output Root Path
 $CsvPath = "C:\DRIVERS\"
 #List of Subscriptions to analyse the ASR Backup Vaults (Comma seperated if more than one)
 $AzSubList = @("FLS GBS Azure Subscription","GBS Production", "GBS Testing")
@@ -18,7 +37,7 @@ $RootPathName = ((Get-Location).Path + "\")
 
 Function Merge-CsvFiles($dir, $OutFile, $Pattern) {
  # Build the file list
- $FileList = Get-ChildItem $dir -include $Pattern -rec -File | where {$_.Length -ne 0kb}
+ $FileList = Get-ChildItem $dir -include $Pattern -rec -File | Where-Object {$_.Length -ne 0kb}
  # Get the header info from the first file
  Get-Content $fileList[0] | Select-Object -First 1 | Out-File -FilePath $outfile -Encoding ascii
  # Cycle through and get the data (sans header) from all the files in the list
@@ -40,8 +59,6 @@ foreach ($AzSub in $AzSubList) {
             $AsrItems = Get-ASRReplicationProtectedItem -ProtectionContainer $ProtectionContainer 
             foreach ($AsrItem in $AsrItems) {
                 $AsrObjId = $AsrItem | Select-Object -Property ID
-                $AsrObjId = $AsrItem | Select-Object -Property ID, RecoveryAzureStorageAccount
-                $AsrObjId | format-list
                 # Add ResourceGroup
                 $RG = $AsrObjId.ID.Substring($AsrObjId.ID.IndexOf("resourceGroups"),$AsrObjId.ID.IndexOf("providers")-$AsrObjId.ID.IndexOf("resourceGroups"))
                 $ResourceGroupe = $RG.Substring($RG.IndexOf("/")+1,$RG.Length-$RG.IndexOf("/")-2)
@@ -62,4 +79,4 @@ foreach ($AzSub in $AzSubList) {
         }
     Merge-CsvFiles -dir $RootPathName -OutFile (Join-Path $RootPathName ($AzSub + "_merged.csv")) -Pattern ($AzSub + "*.csv")
 }
-Merge-CsvFiles -dir $RootPathName -OutFile (Join-Path $RootPathName ("AsrAnalysis_merged.csv")) -Pattern "*_merged.csv"
+Merge-CsvFiles -dir $RootPathName -OutFile (Join-Path $RootPathName ("report_merged.csv")) -Pattern "*_merged.csv"
