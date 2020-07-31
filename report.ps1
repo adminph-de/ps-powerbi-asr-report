@@ -1,39 +1,19 @@
-﻿<#
- .SYNOPSIS
-    Collects information out of Azure Site Recovery (ASR) into a CVS file.
-    By: Patrick Hayo (patrick.hayo@icloud.com)
-    Revision: 1.0 
-    Data: 2019-03-27
+﻿$json = Get-Content -Raw -Path report.json | ConvertFrom-Json
 
- .DESCRIPTION
-    Executable on PowerShell Command Line. 
-    Prerequtements: PowerShell, AzureAz Module
-    Optional to analyse the data: Microsoft Excel and PowerBI
+[System.Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic') | Out-Null
+$passwd = ConvertTo-SecureString $json.login.SPN_PW -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ($json.login.SPN_ID, $passwd) 
+$azure = Get-AzEnvironment 'AzureCloud'
+Login-AzAccount -Environment $azure -TenantId $json.login.TENANT_ID -Credential $cred -ServicePrincipal -WarningAction Ignore
 
- .PARAMETER CsvPath
-    Destination Directory for the output of the Script.
-
- .PARAMETER AzSubList
-    List of Azure Subscriptions, comma seperated.
-#>
-
-#Output Root Path
-$CsvPath = "C:\DRIVERS\"
-#List of Subscriptions to analyse the ASR Backup Vaults (Comma seperated if more than one)
-$AzSubList = @("FLS GBS Azure Subscription","GBS Production", "GBS Testing")
-
-<# ----- DO NOT CHANGE BELOW THIS LINE -----#>
-
-#Generates the current data and time
-$CurrentDate = (Get-Date -format "yyyy-MM-dd_hh-mm-ss")
-
-#Create a new directory and set it as active
-Set-Location $CsvPath
-if (!(Test-Path ($CsvPath + "\" + $CurrentDate))) {
-    New-Item -ItemType Directory -Path $CurrentDate
+#Output
+if (!(Test-Path ((Get-location).path + "/" + $json.location))) {
+    New-Item -ItemType Directory -Path ((Get-location).path + "/" + $json.location)
 }
-Set-Location ($CsvPath + $CurrentDate)
-$RootPathName = ((Get-Location).Path + "\")
+Set-Location ((Get-location).path + "/" + $json.location)
+$output = ((Get-Location).path  + ("\"))
+$date = (Get-Date -format "yyyyMMddhhmmss")
+$subs = @($json.subscription.name)
 
 Function Merge-CsvFiles($dir, $OutFile, $Pattern) {
  # Build the file list
@@ -47,11 +27,11 @@ Function Merge-CsvFiles($dir, $OutFile, $Pattern) {
  }
 }
 
-foreach ($AzSub in $AzSubList) {
-    Select-AzSubscription $AzSub
+foreach ($sub in $subs) {
+    Select-AzSubscription $sub
     $RecVaults = Get-AzResource -ResourceType Microsoft.RecoveryServices/vaults
     foreach ($RecVault in $RecVaults) {
-        $vault = Get-AzureRmRecoveryServicesVault -Name $RecVault.Name -ResourceGroupName $RecVault.ResourceGroupName
+        $vault = Get-AzRecoveryServicesVault -Name $RecVault.Name -ResourceGroupName $RecVault.ResourceGroupName
         Set-ASRVaultContext -Vault $Vault
         $ASRFabrics = Get-ASRFabric 
         if ($ASRFabrics.count -ne 0) {
@@ -74,9 +54,10 @@ foreach ($AzSub in $AzSubList) {
                 # Add SubscriptionName
                 $AsrItem | Add-Member -type NoteProperty -Name "SubscriptionName" -Value (Get-AzSubscription -SubscriptionId $SubscriptionId).Name
                 }
-                $AsrItems | Export-Csv -Path ($RootPathName + $AzSub + "__" + $RecVault.Name + "__" + $ASRFabrics[0].FriendlyName + ".csv") -NoTypeInformation -UseCulture
+                $AsrItems | Export-Csv -Path (($output + ("~$" + $date + $sub  + $RecVault.Name + $ASRFabrics[0].FriendlyName + ".csv").replace(' ' , ''))).ToLower() -NoTypeInformation -UseCulture
             }
         }
-    Merge-CsvFiles -dir $RootPathName -OutFile (Join-Path $RootPathName ($AzSub + "_merged.csv")) -Pattern ($AzSub + "*.csv")
+    Merge-CsvFiles -dir $output -OutFile (Join-Path $output ("~$" + $date + $sub + ".csv")) -Pattern ("~$" + $date + $sub + "*.csv")
 }
-Merge-CsvFiles -dir $RootPathName -OutFile (Join-Path $RootPathName ("report_merged.csv")) -Pattern "*_merged.csv"
+Merge-CsvFiles -dir $output -OutFile (Join-Path $output ("report" + $date + ".csv")) -Pattern "~$*.csv"
+Remove-Item -Path ($output + ("~$" + $date + "*.csv"))

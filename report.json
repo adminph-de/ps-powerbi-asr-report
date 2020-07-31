@@ -1,11 +1,11 @@
 {
+    "location":"reports",
     "login": {
-        "TENANT_ID": "00000000-0000-0000-0000-00000000000",
-        "SPN_ID": "00000000-0000-0000-0000-00000000000",
-        "SPN_PW": "yourSpnSecret"
+        "TENANT_ID": "5a783410-682d-4564-b908-bb78d5afb2fe",
+        "SPN_ID": "46c4c7a2-b2b9-4a47-bdf2-bf9577040ab1",
+        "SPN_PW": "_.WQTbGO7vviv6u67wx8YQ5L4rRs3.-aP6"
     },
-    "output":"reports",
     "subscription": [
-        { "name":[ "prod", "test", "dev" ] }
+        { "name":[ "GBS Testing", "GBS Production" ] }
     ]
    }
