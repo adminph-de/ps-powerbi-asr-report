@@ -4,6 +4,7 @@
         "SPN_ID": "00000000-0000-0000-0000-00000000000",
         "SPN_PW": "yourSpnSecret"
     },
+    "delimiter": ";",
     "output":"reports",
     "subscription": [
         { "name":[ "prod", "test", "dev" ] }
