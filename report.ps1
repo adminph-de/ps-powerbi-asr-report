@@ -1,4 +1,9 @@
-﻿$json = Get-Content -Raw -Path report.json | ConvertFrom-Json
+﻿param(
+    [Parameter(Mandatory=$true)]
+    [string]$jsonfile
+)
+
+$json = Get-Content -Raw -Path $jsonfile | ConvertFrom-Json
 
 [System.Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic') | Out-Null
 $passwd = ConvertTo-SecureString $json.login.SPN_PW -AsPlainText -Force
