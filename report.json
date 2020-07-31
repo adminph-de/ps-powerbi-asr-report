@@ -6,6 +6,6 @@
         "SPN_PW": "_.WQTbGO7vviv6u67wx8YQ5L4rRs3.-aP6"
     },
     "subscription": [
-        { "name":[ "GBS Testing", "GBS Production" ] }
+        { "name":[ "GBS Testing", "GBS Production", "FLS GBS Azure Subscription" ] }
     ]
    }

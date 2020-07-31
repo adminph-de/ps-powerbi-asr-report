@@ -54,7 +54,7 @@ foreach ($sub in $subs) {
                 # Add SubscriptionName
                 $AsrItem | Add-Member -type NoteProperty -Name "SubscriptionName" -Value (Get-AzSubscription -SubscriptionId $SubscriptionId).Name
                 }
-                $AsrItems | Export-Csv -Path (($output + ("~$" + $date + $sub  + $RecVault.Name + $ASRFabrics[0].FriendlyName + ".csv").replace(' ' , ''))).ToLower() -NoTypeInformation -UseCulture
+                $AsrItems | Export-Csv -Path (($output + ("~$" + $date + $sub  + $RecVault.Name + $ASRFabrics[0].FriendlyName + ".csv").replace(' ' , ''))).ToLower() -NoTypeInformation -UseCulture 
             }
         }
     Merge-CsvFiles -dir $output -OutFile (Join-Path $output ("~$" + $date + $sub + ".csv")) -Pattern ("~$" + $date + $sub + "*.csv")
