@@ -11,7 +11,6 @@ $cred = New-Object System.Management.Automation.PSCredential ($json.login.SPN_ID
 $azure = Get-AzEnvironment 'AzureCloud'
 Login-AzAccount -Environment $azure -TenantId $json.login.TENANT_ID -Credential $cred -ServicePrincipal -WarningAction Ignore
 
-#Output
 if (!(Test-Path ((Get-location).path + "/" + $json.location))) {
     New-Item -ItemType Directory -Path ((Get-location).path + "/" + $json.location)
 }
