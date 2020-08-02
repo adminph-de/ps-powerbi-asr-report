@@ -6,3 +6,6 @@
 *cred.conf
 *.creds
 *.cred
+
+# Related special folders and files
+**/reports/*

@@ -21,14 +21,16 @@ $subs = @($json.subscription.name)
 
 Function Merge-CsvFiles($dir, $OutFile, $Pattern) {
  # Build the file list
- $FileList = Get-ChildItem $dir -include $Pattern -rec -File -ErrorAction SilentlyContinue | Where-Object {$_.Length -ne 0kb}
+ $FileList = Get-ChildItem $dir -include $Pattern -rec -File | Where-Object {$_.Length -ne 0kb}
  # Get the header info from the first file
+ if (! $FileList.count -eq 0 )  {
  Get-Content $fileList[0] | Select-Object -First 1 | Out-File -FilePath $outfile -Encoding ascii
  # Cycle through and get the data (sans header) from all the files in the list
  foreach ($file in $filelist)
  {
    Get-Content $file | Select-Object -Skip 1 | Out-File -FilePath $outfile -Encoding ascii -Append
  }
+}
 }
 
 foreach ($sub in $subs) {
@@ -64,5 +66,5 @@ foreach ($sub in $subs) {
     Merge-CsvFiles -dir $output -OutFile (Join-Path $output ("~$" + $date + $sub + ".csv")) -Pattern ("~$" + $date + $sub + "*.csv")
 }
 Merge-CsvFiles -dir $output -OutFile (Join-Path $output ("report" + $date + ".csv")) -Pattern "~$*.csv"
-(Get-Content -path ($output + "report" + $date + ".csv")).replace(',',$json.login.delimiter) | Set-Content -Path ($output + "report" + $date + ".csv")
+(Get-Content -path ($output + "report.csv")).replace(',',$json.login.delimiter) | Set-Content -Path ($output + "report" + $date + ".csv")
 Remove-Item -Path ($output + ("~$" + $date + "*.csv"))
