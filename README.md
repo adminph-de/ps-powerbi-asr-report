@@ -94,6 +94,8 @@ Script Output in [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/):
   </a>
 </p>
 
+>Find an example PowerBi report  ``/example/report.pbix`` Including a ``report.csv`` example with demo data.
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
