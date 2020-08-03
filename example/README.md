@@ -1,13 +1,13 @@
 <!--
 *** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better, please fork the ps-powerbi-asr-report and create a pull request or simply open
+*** make this better, please fork the ps-azure-spn-login and create a pull request or simply open
 *** an issue with the tag "enhancement".
 *** Thanks again! Now go create something AMAZING! :D
 ***
 ***
 ***
 *** To avoid retyping too much info. Do a search and replace for the following:
-*** adminph-de, ps-powerbi-asr-report, N00ky2010, patrick.hayo@flsmidth.com
+*** adminph-de, ps-azure-spn-login, N00ky2010, patrick.hayo@flsmidth.com
 -->
 
 
@@ -34,7 +34,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/adminph-de/ps-powerbi-asr-report">
+  <a href="https://github.com/adminph-de/ps-azure-spn-login">
     <img src="images/logo.png" alt="Logo" width="708" height="274">
   </a>
 
@@ -43,14 +43,14 @@
   <p align="center">
     YOUR_SHORT_DESCRIPTION
     <br />
-    <a href="https://github.com/adminph-de/ps-powerbi-asr-report"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/adminph-de/ps-azure-spn-login"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/adminph-de/ps-powerbi-asr-report">View Demo</a>
+    <a href="https://github.com/adminph-de/ps-azure-spn-login">View Demo</a>
     ·
-    <a href="https://github.com/adminph-de/ps-powerbi-asr-report/issues">ps-powerbi-asr-reportrt Bug</a>
+    <a href="https://github.com/adminph-de/ps-azure-spn-login/issues">ps-azure-spn-loginrt Bug</a>
     ·
-    <a href="https://github.com/adminph-de/ps-powerbi-asr-report/issues">Request Feature</a>
+    <a href="https://github.com/adminph-de/ps-azure-spn-login/issues">Request Feature</a>
   </p>
 </p>
 
@@ -80,7 +80,7 @@
 
 Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`adminph-de`, `ps-powerbi-asr-report`, `N00ky2010`, `patrick.hayo@flsmidth.com`
+`adminph-de`, `ps-azure-spn-login`, `N00ky2010`, `patrick.hayo@flsmidth.com`
 
 
 ### Built With
@@ -106,9 +106,9 @@ npm install npm@latest -g
 
 ### Installation
  
-1. Clone the ps-powerbi-asr-report
+1. Clone the ps-azure-spn-login
 ```sh
-git clone https://github.com/adminph-de/ps-powerbi-asr-report.git
+git clone https://github.com/adminph-de/ps-azure-spn-login.git
 ```
 2. Install NPM packages
 ```sh
@@ -129,7 +129,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/adminph-de/ps-powerbi-asr-report/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/adminph-de/ps-azure-spn-login/issues) for a list of proposed features (and known issues).
 
 
 
@@ -158,7 +158,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Patrick Hayo - [@N00ky2010](https://twitter.com/N00ky2010) - patrick.hayo@flsmidth.com
 
-Project Link: [https://github.com/adminph-de/ps-powerbi-asr-report](https://github.com/adminph-de/ps-powerbi-asr-report)
+Project Link: [https://github.com/adminph-de/ps-azure-spn-login](https://github.com/adminph-de/ps-azure-spn-login)
 
 
 
@@ -175,16 +175,16 @@ Project Link: [https://github.com/adminph-de/ps-powerbi-asr-report](https://gith
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/adminph-de/ps-powerbi-asr-report.svg?style=flat-square
-[contributors-url]: https://github.com/adminph-de/ps-powerbi-asr-report/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/adminph-de/ps-powerbi-asr-report.svg?style=flat-square
-[forks-url]: https://github.com/adminph-de/ps-powerbi-asr-report/network/members
-[stars-shield]: https://img.shields.io/github/stars/adminph-de/ps-powerbi-asr-report.svg?style=flat-square
-[stars-url]: https://github.com/adminph-de/ps-powerbi-asr-report/stargazers
-[issues-shield]: https://img.shields.io/github/issues/adminph-de/ps-powerbi-asr-report.svg?style=flat-square
-[issues-url]: https://github.com/adminph-de/ps-powerbi-asr-report/issues
-[license-shield]: https://img.shields.io/github/license/adminph-de/ps-powerbi-asr-report.svg?style=flat-square
-[license-url]: https://github.com/adminph-de/ps-powerbi-asr-report/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/adminph-de/ps-azure-spn-login.svg?style=flat-square
+[contributors-url]: https://github.com/adminph-de/ps-azure-spn-login/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/adminph-de/ps-azure-spn-login.svg?style=flat-square
+[forks-url]: https://github.com/adminph-de/ps-azure-spn-login/network/members
+[stars-shield]: https://img.shields.io/github/stars/adminph-de/ps-azure-spn-login.svg?style=flat-square
+[stars-url]: https://github.com/adminph-de/ps-azure-spn-login/stargazers
+[issues-shield]: https://img.shields.io/github/issues/adminph-de/ps-azure-spn-login.svg?style=flat-square
+[issues-url]: https://github.com/adminph-de/ps-azure-spn-login/issues
+[license-shield]: https://img.shields.io/github/license/adminph-de/ps-azure-spn-login.svg?style=flat-square
+[license-url]: https://github.com/adminph-de/ps-azure-spn-login/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/patrickhayo-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/patrickhayo/?locale=en_US
 [product-screenshot]: images/screenshot.png
