@@ -90,7 +90,7 @@ Script Output in [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/):
 
 <p align="left">
   <a href="https://github.com/adminph-de/ps-powerbi-asr-report">
-    <img src="images/screenshot.png" alt="Code Snipes" width="35%" height="35%">
+    <img src="images/screenshot.png" alt="Code Snipes" width="45%" height="45%">
   </a>
 </p>
 
