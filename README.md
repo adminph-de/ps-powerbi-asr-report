@@ -56,6 +56,8 @@ if ($PSVersionTable.PSEdition -eq 'Desktop' -and (Get-Module -Name AzureRM -List
 }
 ```
 
+[Create an Azure service principal](https://docs.microsoft.com/en-us/powershell/azure/create-azure-service-principal-azureps?view=azps-4.4.0) to run the script with SPN authentification.
+
 Analyzing the generated data, [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/) needs to be available on your computer. You can of cures use an analyzing tool of your choice and connect the generated *.csv file to it. I am not an expert in [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/) and can not guide you to build a report. Find a description of how to import the *.csv file to the example [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/) released in the more detailed documentation.
 
 
