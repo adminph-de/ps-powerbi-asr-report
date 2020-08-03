@@ -31,6 +31,7 @@
 
 - Azuer Site Recovery (ASR) PowerBI Reporting
   - [Content](#content)
+  - [Prerequisites](#Prerequisites)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Contributing](#contributing)
@@ -40,26 +41,44 @@
   - [Referenzes](#referenzes)
 
 
+## Prerequisites
+
+You need an installed [PowerShell](https://docs.microsoft.com/en-us/powershell/) or, if you like to do it on Microsoft Visual Studio Code, you can try the Remote-Connection and let the code run in an isolated Docker container. Find the instruction of how to run here [Using Azure PowerShell in Docker](https://docs.microsoft.com/en-us/powershell/azure/azureps-in-docker?view=azps-4.4.0). It can be helpful if you use a macOS or Linux.
+
+Running the script in the end, you need the Azure "AZ" module installed. Here the simple installation (it works the same way in the Docker container)
+[InstallAzure Module "AZ"](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.4.0)
+```powershell
+if ($PSVersionTable.PSEdition -eq 'Desktop' -and (Get-Module -Name AzureRM -ListAvailable)) {
+    Write-Warning -Message ('Az module not installed. Having both the AzureRM and ' +
+      'Az modules installed at the same time is not supported.')
+} else {
+    Install-Module -Name Az -AllowClobber -Scope CurrentUser
+}
+```
+
 ## Installation
 
 Clone the git reop to start:
 ```bash
 https://git.com/adminph-de/ps-powerbi-asr-report
-``` 
+```
 
 ## Usage
 
 Change the JSON file (report.json):
 ```json
-[
-    {
-       "object": {
-           "TENANT_ID": "0000000-0000-0000-0000-00000000000",
-           "SPN_ID": "0000000-0000-0000-0000-00000000000",
-           "SPN_PW": "yourSecretSPNpassword"
-     }
-    }
-]
+{
+    "delimiter": ";",
+    "location":"reports",
+    "login": {
+        "TENANT_ID": "00000000-0000-0000-0000-00000000000",
+        "SPN_ID": "00000000-0000-0000-0000-00000000000",
+        "SPN_PW": "yourSpnSecret"
+    },
+    "subscription": [
+        { "name":[ "prod", "test", "dev" ] }
+    ]
+   }
 ```
 
 Execute the script:
@@ -68,14 +87,12 @@ report.ps1 -JsonFile report.json
 ```
 
 Script Output:
-```
-You are authenicated (SPN) by:
-SPN_ID    : 0000000-0000-0000-0000-00000000000
-TENANT_ID : 0000000-0000-0000-0000-00000000000
-Don't forget to select a Subscrtiption by going ahead
-```
->Check my usage of the code-snipe as an example in [ps-powerbi-asr-report](http://github.code-snipes.de/ps-powerbi-asr-report). I used it in the ``report.ps1`` script to authenticate before executing the script.
 
+<p align="left">
+  <a href="https://github.com/adminph-de/ps-powerbi-asr-report">
+    <img src="images/screenshot.png" alt="Code Snipes" width="35%" height="35%">
+  </a>
+</p>
 
 ## Contributing
 
@@ -113,6 +130,7 @@ Project Link: [https://github.com/adminph-de/ps-powerbi-asr-report](https://gith
 ## Referenzes
 
 * [Create an Azure service principal](https://docs.microsoft.com/en-us/powershell/azure/create-azure-service-principal-azureps?view=azps-4.4.0)
+* [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/)
 
 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
