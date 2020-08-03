@@ -86,7 +86,7 @@ Execute the script:
 report.ps1 -JsonFile report.json
 ```
 
-Script Output:
+Script Output in [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/):
 
 <p align="left">
   <a href="https://github.com/adminph-de/ps-powerbi-asr-report">
