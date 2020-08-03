@@ -43,7 +43,7 @@
 
 ## Prerequisites
 
-You need an installed [PowerShell](https://docs.microsoft.com/en-us/powershell/) or, if you like to do it on Microsoft Visual Studio Code, you can try the Remote-Connection and let the code run in an isolated Docker container. Find the instruction of how to run here [Using Azure PowerShell in Docker](https://docs.microsoft.com/en-us/powershell/azure/azureps-in-docker?view=azps-4.4.0). It can be helpful if you use a macOS or Linux.
+You need an installed [PowerShell](https://docs.microsoft.com/en-us/powershell/) or, if you like to do it on Microsoft Visual Studio Code, you can try the Remote-Connection and let the code run in an isolated Docker container. Find the instruction on how to run here [Using Azure PowerShell in Docker](https://docs.microsoft.com/en-us/powershell/azure/azureps-in-docker?view=azps-4.4.0). It can be helpful if you use a macOS or Linux.
 
 Running the script in the end, you need the Azure "AZ" module installed. Here the simple installation (it works the same way in the Docker container)
 [InstallAzure Module "AZ"](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.4.0)
@@ -55,6 +55,9 @@ if ($PSVersionTable.PSEdition -eq 'Desktop' -and (Get-Module -Name AzureRM -List
     Install-Module -Name Az -AllowClobber -Scope CurrentUser
 }
 ```
+
+Analyzing the generated data, [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/) needs to be available on your computer. You can of cures use an analyzing tool of your choice and connect the generated *.csv file to it. I am not an expert in [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/) and can not guide you to build a report. Find a description of how to import the *.csv file to the example [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/) released in the more detailed documentation.
+
 
 ## Installation
 
