@@ -3,7 +3,7 @@
 *** adminph-de, ps-powerbi-asr-report, N00ky2010, patrick.hayo@flsmidth.com
 -->
 
-# Azuer Site Recovery (ASR) PowerBI Reporting 
+# Azure Site Recovery (ASR) PowerBI Reporting
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
