@@ -30,6 +30,7 @@
 ## Content
 
 - Azuer Site Recovery (ASR) PowerBI Reporting
+  - [Documentation](#documentation)
   - [Content](#content)
   - [Prerequisites](#Prerequisites)
   - [Installation](#installation)
@@ -39,6 +40,11 @@
   - [Contact](#contact)
   - [Acknowledgements](#acknowledgements)
   - [Referenzes](#referenzes)
+
+
+## Documentation
+
+Find a detaild documentation at [http://github.code-snipes.de/ps-powerbi-asr-report](http://github.code-snipes.de/ps-powerbi-asr-report) 
 
 
 ## Prerequisites
@@ -70,7 +76,7 @@ https://git.com/adminph-de/ps-powerbi-asr-report
 
 ## Usage
 
-Change the JSON file (report.json):
+#### Change the JSON file (report.json)
 ```json
 {
     "delimiter": ";",
@@ -86,12 +92,12 @@ Change the JSON file (report.json):
    }
 ```
 
-Execute the script:
+#### Execute the script
 ```bash
 report.ps1 -JsonFile report.json
 ```
 
-Script Output in [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/):
+#### Script Output in [Microsoft PowerBI](https://powerbi.microsoft.com/en-us/):
 
 <p align="left">
   <a href="https://github.com/adminph-de/ps-powerbi-asr-report">
@@ -154,4 +160,4 @@ Project Link: [https://github.com/adminph-de/ps-powerbi-asr-report](https://gith
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/patrickhayo/?locale=en_US
 [product-screenshot]: images/screenshot.png
-[product-screenshot-run]: images/screenshot_run.png
+[product-documentation]: http://github.code-snipes.de/ps-powerbi-asr-report
