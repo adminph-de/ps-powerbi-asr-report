@@ -1,0 +1,14 @@
+
+title: ASR Reporting with Microsoft PowerBI
+description: Analyse Azure Site Recovery status by using PowerBI
+show_downloads: true
+google_analytics: UA-174405517-1
+url: "http://github.code-snipes.de/ps-powerbi-asr-reporting"
+theme: jekyll-theme-modernist
+maintinance: true
+
+github:
+  owner_name: "Patrick Hayo"
+  zip_url: 
+  tar_url: 
+  repository_url: https://github.com/adminph-de/ps-powerbi-asr-reporting
