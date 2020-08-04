@@ -79,17 +79,17 @@ https://git.com/adminph-de/ps-powerbi-asr-report
 #### Change the JSON file (report.json)
 ```json
 {
-    "delimiter": ";",
-    "location":"reports",
-    "login": {
-        "TENANT_ID": "00000000-0000-0000-0000-00000000000",
-        "SPN_ID": "00000000-0000-0000-0000-00000000000",
-        "SPN_PW": "yourSpnSecret"
-    },
-    "subscription": [
-        { "name":[ "prod", "test", "dev" ] }
-    ]
-   }
+  "delimiter": ";",
+  "location":"reports",
+  "login": {
+      "TENANT_ID": "00000000-0000-0000-0000-00000000000",
+      "SPN_ID": "00000000-0000-0000-0000-00000000000",
+      "SPN_PW": "yourSpnSecret"
+  },
+  "subscription": [
+      { "name":[ "prod", "test", "dev" ] }
+  ]
+}
 ```
 
 #### Execute the script
