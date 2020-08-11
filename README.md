@@ -71,7 +71,7 @@ Analyzing the generated data, [Microsoft PowerBI](https://powerbi.microsoft.com/
 
 Clone the git reop to start:
 ```bash
-https://git.com/adminph-de/ps-powerbi-asr-report
+git clone https://git.com/adminph-de/ps-powerbi-asr-report.git
 ```
 
 ## Usage
