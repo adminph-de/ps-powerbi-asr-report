@@ -5,7 +5,7 @@ show_downloads: true
 google_analytics: UA-174405517-1
 url: "https://github.code-snipes.de/ps-powerbi-asr-report/"
 theme: jekyll-theme-modernist
-maintinance: true
+maintinance: false
 
 github:
   owner_name: "Patrick Hayo"
